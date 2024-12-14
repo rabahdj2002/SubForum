@@ -14,6 +14,23 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/templatemo-topic-listing.css" rel="stylesheet">    
+        
+
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
                         
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,13 +38,33 @@
         <link href="css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="css/templatemo-topic-listing.css" rel="stylesheet">
-<!--
+        <style>
+            .file-list {
+                size: 10px;
+                margin-top: 10px;
+                list-style: none;
+                padding: 0;
+            }
+            .file-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+            .file-list .spinner {
+                margin-left: 10px;
+                width: 1rem;
+                height: 1rem;
+                border: 2px solid #f3f3f3;
+                border-top: 2px solid #3498db;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
 
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
     </head>
     
     <body class="topics-listing-page" id="top">
@@ -99,11 +136,11 @@ https://templatemo.com/tm-590-topic-listing
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
 
-                                    <li class="breadcrumb-item active" aria-current="page">Contact Form</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Project Submission</li>
                                 </ol>
                             </nav>
 
-                            <h2 class="text-white">Contact Form</h2>
+                            <h2 class="text-white">Submit Project :</h2>
                         </div>
 
                     </div>
@@ -116,21 +153,30 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="row">
 
                         <div class="col-lg-12 col-12">
-                            <h3 class="mb-4 pb-2">We'd love to hear from you</h3>
+                            <h3 class="mb-4 pb-2">Your Details :</h3>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <form action="#" method="post" class="custom-form contact-form" role="form">
+                                
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-floating">
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
+                                            <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name" required>
                                             
-                                            <label for="floatingInput">Name</label>
+                                            <label for="floatingInput">First Name</label>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-md-6 col-12"> 
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name" required>
+                                            
+                                            <label for="floatingInput">Last Name</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-7 col-12"> 
                                         <div class="form-floating">
                                             <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
                                             
@@ -138,11 +184,32 @@ https://templatemo.com/tm-590-topic-listing
                                         </div>
                                     </div>
 
+                                    <div class="col-lg-5 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="student_id" id="student_id" class="form-control" placeholder="Student ID" required>
+                                            
+                                            <label for="floatingInput">Student ID</label>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <br>
+
+                                    <div class="col-lg-12 col-12">
+                                        <h3 class="mb-4 pb-2">Your Project's Details :</h3>
+                                    </div>
+
                                     <div class="col-lg-12 col-12">
                                         <div class="form-floating">
-                                            <input type="text" name="subject" id="name" class="form-control" placeholder="Name" required="">
+                                            <input type="text" name="title" id="title" class="form-control" placeholder="Title" required="">
                                             
-                                            <label for="floatingInput">Subject</label>
+                                            <label for="floatingInput">Title</label>
+                                        </div>
+
+                                        <div class="form-floating">
+                                            <input type="text" name="url" id="url" class="form-control" placeholder="Link" required="">
+                                            
+                                            <label for="floatingInput">Link (optional)</label>
                                         </div>
 
                                         <div class="form-floating">
@@ -160,12 +227,18 @@ https://templatemo.com/tm-590-topic-listing
                             </form>
                         </div>
 
-                        <div class="col-lg-5 col-12 mx-auto mt-5 mt-lg-0">
-                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.065641062665!2d-122.4230416990949!3d37.80335401520422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858127459fabad%3A0x808ba520e5e9edb7!2sFrancisco%20Park!5e1!3m2!1sen!2sth!4v1684340239744!5m2!1sen!2sth" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                            <h5 class="mt-4 mb-2">Topic Listing Center</h5>
-
-                            <p>Bay St &amp;, Larkin St, San Francisco, CA 94109, United States</p>
+                        <div class=" form-floating col-lg-5 col-12 mx-auto mt-5 mt-lg-0">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Upload Project Files</label>
+                                <div class="upload-container d-flex align-items-center justify-content-center border border-dashed rounded p-3">
+                                    <input type="file" class="form-control d-none" id="file" name="file" accept="*/*" multiple required>
+                                    <label for="file" class="d-flex flex-column align-items-center">
+                                        <i class="fa fa-upload fa-2x mb-2"></i>
+                                        <span>Click or drag files here to upload</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <ul id="fileList" class="file-list"></ul>
                         </div>
 
                     </div>
@@ -250,6 +323,30 @@ https://templatemo.com/tm-590-topic-listing
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery.sticky.js"></script>
         <script src="js/custom.js"></script>
+
+        <script>
+            const fileInput = document.getElementById('file');
+            const fileList = document.getElementById('fileList');
+
+            fileInput.addEventListener('change', () => {
+                fileList.innerHTML = ''; // Clear the list
+                Array.from(fileInput.files).forEach(file => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = file.name;
+
+                    const spinner = document.createElement('div');
+                    spinner.classList.add('spinner');
+
+                    listItem.appendChild(spinner);
+                    fileList.appendChild(listItem);
+
+                    // Simulate upload delay (remove spinner after 2 seconds)
+                    setTimeout(() => {
+                        listItem.removeChild(spinner);
+                    }, 2000);
+                });
+            });
+        </script>
 
     </body>
 </html>
