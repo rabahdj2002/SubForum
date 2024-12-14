@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Topic Listing Bootstrap 5 Template</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/templatemo-topic-listing.css" rel="stylesheet">      
+
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <i class="fa fa-paperclip"></i>
+                        <span>SubForum</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">About UMC</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon fa fa-circle-up smoothscroll"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Discover. Learn. Enjoy</h1>
+
+                            <h6 class="text-center">Project submission platform for UMC automation students</h6>
+
+                            <form method="post" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                                {% csrf_token %}
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text fa fa-search" id="basic-addon1">
+                                        
+                                    </span>
+
+                                    <input name="Student_id" type="search" class="form-control" id="Student_id" placeholder="Enter Your student ID" aria-label="Search">
+
+                                    <button type="submit" class="form-control">Search</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                            <div class="custom-block bg-white shadow-lg">
+                                <a href="topics-detail.html">
+                                    <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">Teacher</h5>
+
+                                            <p class="mb-0">When students submit their projects, Mr.Zeltni can grade projects giving them an honest review and a score x/20.</p>
+                                        </div>
+
+                                        <span class="badge bg-design rounded-pill ms-auto">&#128509;</span>
+                                    </div>
+
+                                    <img src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block custom-block-overlay">
+                                <div class="d-flex flex-column h-100">
+                                    <img src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
+
+                                    <div class="custom-block-overlay-text d-flex">
+                                        <div>
+                                            <h5 class="text-white mb-2">Students</h5>
+
+                                            <p class="text-white">Students can submit their projects and modify them later, before the teacher can grade them, making sure their projects are well described and detailed.</p>
+
+                                            <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Submit Project</a>
+                                        </div>
+
+                                        <span class="badge bg-finance rounded-pill ms-auto">&#128511;</span>
+                                    </div>
+                                    <div class="section-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="faq-section section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <h2 class="mb-4">Frequently Asked Questions</h2>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-5 col-12">
+                            <img src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                        </div>
+
+                        <div class="col-lg-6 col-12 m-auto">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            1. Who is the developer of this website?
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            This website was developed by <strong>Djebbes Rabah</strong>, a passionate web developer with a strong background in Python and Django, committed to creating efficient solutions for students and educators alike.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            2. Can I submit my project more than once?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            No, each student is allowed to submit their project only once. After your submission, you will not be able to upload another one. Please make sure your project is finalized before submitting.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            3. How will I know when my project is graded?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Once your project is graded, the badge on your assignment will turn green and display a "Graded" status. Additionally, you will receive an email notification confirming that your project has been graded.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact-section section-padding section-bg" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-5">UMC (University of Constantine 1)</h2>
+                        </div>
+
+                        <div class="col-lg-7 col-12 mb-4 mb-lg-0">
+                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.7032380752894!2d6.6204727!3d36.3409251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f170d54797f381%3A0xd922ffcfa6a8923a!2sUniversity%20of%20Constantine%201!5e1!3m2!1sen!2sdz!4v1734178203572!5m2!1sen!2sdz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h4 class="mb-3">Naming</h4>
+
+                            <p>The Université Constantine 1, formerly Mentouri University of Constantine</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: 03031811271" class="site-footer-link">
+                                    031811271
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="http://umc.edu.dz/" class="site-footer-link">
+                                    umc.edu.dz
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+<footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="fa fa-paperclip"></i>
+                            <span>SubForum</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_4" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_5" class="site-footer-link">UMC</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">English</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div>
+
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2024, All rights reserved.
+                        <br><br>Developer: <a rel="follow" href="https://rabahdj2002.github.io/" target="_blank">Rabah Djebbes</a> with much love.</p>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/jquery.min.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/bootstrap.bundle.min.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/jquery.sticky.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/click-scroll.js"></script>
+        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/custom.js"></script>
+
+    </body>
+</html>
