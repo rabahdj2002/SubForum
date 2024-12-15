@@ -1,8 +1,8 @@
 from django.db import models
-from django.core.mail import send_mail
-from django.utils.timezone import now
+from cloudinary.models import CloudinaryField
 
-class Project(models.Model):
+
+class Projects(models.Model):
     STATUS_CHOICES = [
         ('Pending', 'Pending'),
         ('Graded', 'Graded'),
@@ -16,8 +16,10 @@ class Project(models.Model):
 
     # Project Information
     title = models.CharField(max_length=255)
+    url = models.CharField(default="", max_length=255)
     description = models.TextField()
-    file = models.FileField(upload_to=f'projects/')  # File upload for project
+    #file = models.FileField(upload_to=f'projects/')  # File upload for project
+    file = CloudinaryField('file', blank=True, null=True)  # Use CloudinaryField
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     # Grading Information
@@ -28,34 +30,3 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.student_id} - {self.title}"
-
-    def mark_as_graded(self, grade_value, note=None):
-        """
-        Marks the project as graded, sets the grade, adds a grading note, updates the timestamp,
-        and sends an email notification.
-        """
-        self.status = 'Graded'
-        self.grade = grade_value
-        self.grading_note = note
-        self.graded_at = now()
-        self.save()
-
-        # Send email notification to the student
-        subject = "Your project has been graded!"
-        message = (
-            f"Hello {self.first_name} {self.last_name},\n\n"
-            f"Your project '{self.title}' has been graded.\n"
-            f"Status: {self.status}\n"
-            f"Grade: {self.grade}\n"
-            f"Teacher's Note: {self.grading_note or 'No additional notes provided.'}\n\n"
-            f"Check with your teacher or the website for more details.\n\n"
-            "Best regards,\n"
-            "Your Teacher"
-        )
-        send_mail(subject, message, 'teacher@example.com', [self.email])
-
-    def is_graded(self):
-        """
-        Returns True if the project has been graded.
-        """
-        return self.status == 'Graded'

@@ -1,188 +1,126 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "subforum/base.html" %}
 
-        <meta name="description" content="Submit your project">
-        <meta name="author" content="Rabah Djebbes">
+{% block content %}
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
 
-        <title>Submit Your Project</title>
+                <div class="col-lg-5 col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Homepage</a></li>
 
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                            <li class="breadcrumb-item active" aria-current="page">Project Submission</li>
+                        </ol>
+                    </nav>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <h2 class="text-white">Submit Project :</h2>
+                </div>
 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+            </div>
+        </div>
+    </header>
+
+
+    <section class="section-padding section-bg">
+        <div class="container">
+            <form action="/add_new/" method="post" class="custom-form contact-form" role="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <h3 class="mb-4 pb-2">Your Details :</h3>
+                        {% if error_message %}
+                            <div class="alert alert-danger">
+                                {{ error_message }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-lg-6 col-12">
                         
-        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap.min.css" rel="stylesheet">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="fname" value="{{ first_name }}" id="fname" class="form-control" placeholder="First Name">
+                                        
+                                        <label for="floatingInput">First Name</label>
+                                    </div>
+                                </div>
 
-        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/bootstrap-icons.css" rel="stylesheet">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="lname" value="{{ last_name }}" id="lname" class="form-control" placeholder="Last Name">
+                                        
+                                        <label for="floatingInput">Last Name</label>
+                                    </div>
+                                </div>
 
-        <link href="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/css/templatemo-topic-listing.css" rel="stylesheet">      
+                                <div class="col-lg-7 col-12"> 
+                                    <div class="form-floating">
+                                        <input type="email" name="email" value="{{ email }}" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address">
+                                        
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+                                </div>
 
-        <style>
-            .file-list {
-                margin-top: 10px;
-                list-style: none;
-                padding: 0;
-            }
-            .file-list li {
-                display: flex;
-                align-items: center;
-                margin-bottom: 5px;
-            }
-            .file-list .spinner {
-                margin-left: 10px;
-                width: 1rem;
-                height: 1rem;
-                border: 2px solid #f3f3f3;
-                border-top: 2px solid #3498db;
-                border-radius: 50%;
-                animation: spin 1s linear infinite;
-            }
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        </style>
+                                <div class="col-lg-5 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="student_id" value="{{ student_id }}" id="student_id" class="form-control" placeholder="Student ID">
+                                        
+                                        <label for="floatingInput">Student ID</label>
+                                    </div>
+                                </div>
 
-    </head>
-    
-    <body id="top">
+                                <hr>
+                                <br>
 
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8 col-12">
-                    <h1 class="mb-4 text-center">Submit Your Project</h1>
-                    
-                    <form action="/submit_project/" method="post" enctype="multipart/form-data" class="form-control p-4">
-                        {% csrf_token %}
+                                <div class="col-lg-12 col-12">
+                                    <h3 class="mb-4 pb-2">Your Project's Details :</h3>
+                                </div>
 
+                                <div class="col-lg-12 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="title" value="{{ project_title }}" id="title" class="form-control" placeholder="Title">
+                                        
+                                        <label for="floatingInput">Title</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input type="text" name="url" value="{{ url }}" id="url" class="form-control" placeholder="Link">
+                                        
+                                        <label for="floatingInput">Link (optional)</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <textarea class="form-control" value="{{ files }}" id="message" name="message" placeholder="Tell me about the project"></textarea>
+                                        
+                                        <label for="floatingTextarea">Tell me about the project</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Submit</button>
+                                </div>
+
+                            </div>
+                        
+                    </div>
+
+                    <div class=" form-floating col-lg-5 col-12 mx-auto mt-5 mt-lg-0">
                         <div class="mb-3">
-                            <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter your last name" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="student_id" class="form-label">Student ID</label>
-                            <input type="text" class="form-control" id="student_id" name="student_id" placeholder="Enter your student ID" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="project_title" class="form-label">Project Title</label>
-                            <input type="text" class="form-control" id="project_title" name="project_title" placeholder="Enter your project title" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Project Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Provide a brief description of your project" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="file" class="form-label">Upload Project Files</label>
+                            <label for="file" class="form-label">Upload Project Files (.zip format)</label>
                             <div class="upload-container d-flex align-items-center justify-content-center border border-dashed rounded p-3">
-                                <input type="file" class="form-control d-none" id="file" name="file" accept="*/*" multiple required>
+                                <input type="file" class="form-control d-none" id="file" name="file" accept=".zip, .rar" multiple required>
                                 <label for="file" class="d-flex flex-column align-items-center">
                                     <i class="fa fa-upload fa-2x mb-2"></i>
                                     <span>Click or drag files here to upload</span>
                                 </label>
                             </div>
-                            <ul id="fileList" class="file-list"></ul>
                         </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Submit Project</button>
-                    </form>
-                </div>
+                        <ul id="fileList" class="file-list"></ul>
+                    </div>
+                </form>
             </div>
         </div>
-
-        <footer class="site-footer section-padding">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-12 mb-4 pb-2">
-                        <a class="navbar-brand mb-2" href="index.html">
-                            <i class="fa fa-paperclip"></i>
-                            <span>SubForum</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <h6 class="site-footer-title mb-3">Resources</h6>
-
-                        <ul class="site-footer-links">
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Home</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#section_4" class="site-footer-link">FAQs</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#section_5" class="site-footer-link">UMC</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-7 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            English</button>
-
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">English</button></li>
-
-                                <li><button class="dropdown-item" type="button">Arabic</button></li>
-                            </ul>
-                        </div>
-
-                        <p class="copyright-text mt-lg-5 mt-4">Copyright &copy; 2024, All rights reserved.
-                        <br><br>Developer: <a rel="follow" href="https://rabahdj2002.github.io/" target="_blank">Rabah Djebbes</a> with much love.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/jquery.min.js"></script>
-        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/bootstrap.bundle.min.js"></script>
-        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/jquery.sticky.js"></script>
-        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/click-scroll.js"></script>
-        <script src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/js/custom.js"></script>
-
-        <script>
-            const fileInput = document.getElementById('file');
-            const fileList = document.getElementById('fileList');
-
-            fileInput.addEventListener('change', () => {
-                fileList.innerHTML = ''; // Clear the list
-                Array.from(fileInput.files).forEach(file => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = file.name;
-
-                    const spinner = document.createElement('div');
-                    spinner.classList.add('spinner');
-
-                    listItem.appendChild(spinner);
-                    fileList.appendChild(listItem);
-
-                    // Simulate upload delay (remove spinner after 2 seconds)
-                    setTimeout(() => {
-                        listItem.removeChild(spinner);
-                    }, 2000);
-                });
-            });
-        </script>
-
-    </body>
-</html>
+    </section>
+{% endblock content %}

@@ -11,9 +11,24 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+
+CLOUDINARY_URL = 'cloudinary://827387824566353:5dl8Ia3oNwSsY3E8elJ9C9fSyr8@dczyhqs4w'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dczyhqs4w',
+    'API_KEY': '827387824566353',
+    'API_SECRET': '5dl8Ia3oNwSsY3E8elJ9C9fSyr8',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'  # URL that will be used to access files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory where files will be saved
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'subforum',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
