@@ -6,9 +6,11 @@ from django.http import HttpResponseRedirect
 from django.db import IntegrityError
 from django.core.files.storage import FileSystemStorage
 import dropbox
-import random
+import random, os
 from .settings import dropbox_key
+from dotenv import load_dotenv
 
+load_dotenv(dotenv_path="./.env")
 
 def index(request):
     #return HttpResponse("Hello world!")
@@ -26,7 +28,7 @@ def addNewProject(request):
         description = request.POST.get("message")
         uploaded_file = request.FILES['file']
         
-        dbx = dropbox.Dropbox(dropbox_key)
+        dbx = dropbox.Dropbox(os.getenv('DROPBOX_API_KEY'))
         
         try:
             
