@@ -1,5 +1,4 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 
 
 class Projects(models.Model):
@@ -19,7 +18,7 @@ class Projects(models.Model):
     url = models.CharField(default="", max_length=255)
     description = models.TextField()
     #file = models.FileField(upload_to=f'projects/')  # File upload for project
-    file = CloudinaryField('file', blank=True, null=True)  # Use CloudinaryField
+    file = models.URLField(max_length=500)
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     # Grading Information

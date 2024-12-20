@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Projects
-from cloudinary.uploader import upload
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
 from django.core.files.storage import FileSystemStorage
+import dropbox
+import random
+from .settings import dropbox_key
 
 
 def index(request):
@@ -22,21 +24,23 @@ def addNewProject(request):
         project_title = request.POST.get("title")
         url = request.POST.get("url")
         description = request.POST.get("message")
-        files = request.FILES.getlist('file')  # Get list of uploaded files
-        file_urls = []
+        uploaded_file = request.FILES['file']
         
-        # Save the file using FileSystemStorage
-        #fs = FileSystemStorage()
-        #filename = fs.save(uploaded_file.name, uploaded_file)
-        #file_url = fs.url(filename)
+        dbx = dropbox.Dropbox(dropbox_key)
         
         try:
-            for file in files:
-                upload_response = upload(file, resource_type="auto")  # Upload file to Cloudinary
-                file_urls.append(upload_response['url'])  # Get file URL
-                
-            # Save the project object
-            project = Projects.objects.create(
+            
+            dropbox_path = f'/Projects/{uploaded_file.name}-{random.randint(1, 100000000000000000)}'
+            
+            dbx.files_upload(uploaded_file.read(), dropbox_path)
+            
+            # Create a shared link for the uploaded file
+            shared_link_metadata = dbx.sharing_create_shared_link_with_settings(dropbox_path)
+            file_url = shared_link_metadata.url.replace("?dl=0", "?dl=1")  # Direct download link
+            
+            print(file_url)
+            
+            Projects.objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 student_id=student_id,
@@ -44,18 +48,11 @@ def addNewProject(request):
                 title=project_title,
                 url=url,
                 description=description,
-                file=file_urls  # Save the file directly to Cloudinary
+                file=file_url  # Save the file directly to Cloudinary
             )
-            
-            
-            
-            
-
-            # Save each uploaded file
-            #for file in files:
-            #    project.files.save(file.name, file, save=True)
-
-            return JsonResponse({"success": True, "message": "Project submitted successfully!"})
+            return render(request, "subforum/new_prjct.html", {
+                    'success_message': 'Project submitted successfully!',
+                })
         except IntegrityError as e:
                 # Check the exact error type
                 error_message = "An error occurred."
@@ -74,7 +71,7 @@ def addNewProject(request):
                     'project_title': project_title,
                     'url': url,
                     'description': description,
-                    'files': files,
+                    'files': file_url,
                     'error_message': error_message,
                 })
 

@@ -13,16 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
-
-CLOUDINARY_URL = 'cloudinary://827387824566353:5dl8Ia3oNwSsY3E8elJ9C9fSyr8@dczyhqs4w'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dczyhqs4w',
-    'API_KEY': '827387824566353',
-    'API_SECRET': '5dl8Ia3oNwSsY3E8elJ9C9fSyr8',
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
+dropbox_key = 'sl.CC41rDBzdL_9RajcW1jK1M5r8cBhLO1UQCVSpAZtNP4VooE-6OrQOSTICei3COJA13eTOLEYgRf2vrJp4ndrmc55uJ-IYooo9buaiFyoJbiRYQqXXLQ_7BKok1pjpcBRgMiFPD2Od0uSpTw'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +32,6 @@ SECRET_KEY = 'django-insecure-8u#zzb9m_0%a67!$5d(n537#l#si3g%%j#re2l(+1s&g-4)qp)
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
