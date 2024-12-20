@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
-dropbox_key = 'sl.CC41rDBzdL_9RajcW1jK1M5r8cBhLO1UQCVSpAZtNP4VooE-6OrQOSTICei3COJA13eTOLEYgRf2vrJp4ndrmc55uJ-IYooo9buaiFyoJbiRYQqXXLQ_7BKok1pjpcBRgMiFPD2Od0uSpTw'
+#dropbox_key = 'sl.CC41rDBzdL_9RajcW1jK1M5r8cBhLO1UQCVSpAZtNP4VooE-6OrQOSTICei3COJA13eTOLEYgRf2vrJp4ndrmc55uJ-IYooo9buaiFyoJbiRYQqXXLQ_7BKok1pjpcBRgMiFPD2Od0uSpTw'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
