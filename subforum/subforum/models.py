@@ -14,10 +14,11 @@ class Projects(models.Model):
     last_name = models.CharField(max_length=50)
     student_id = models.CharField(max_length=20, unique=True)  # Unique student identifier
     email = models.EmailField()  # Student's email for notifications
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)  # Project owner
 
     # Project Information
     title = models.CharField(max_length=255)
-    url = models.CharField(default="", max_length=255)
+    url = models.CharField(blank=True, default="", max_length=255)
     description = models.TextField()
     #file = models.FileField(upload_to=f'projects/')  # File upload for project
     file = models.URLField(max_length=500)

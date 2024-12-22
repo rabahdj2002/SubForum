@@ -79,17 +79,26 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="/#section_4">FAQs</a>
+                                <a class="nav-link" href="/dashboard/">Dashboard</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#section_4">FAQs</a>
                             </li>
     
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="/#section_5">About UMC</a>
+                                <a class="nav-link" href="/#umc">About UMC</a>
                             </li>
                         </ul>
 
-                        <div class="d-none d-lg-block">
-                            <a href="login/" class="navbar-icon fa fa-user smoothscroll"></a>
+                        <div class="d-none d-lg-block me-2">
+                            <a href="/dashboard/" class="navbar-icon fa fa-user smoothscroll"></a>
                         </div>
+                        {% if user.is_authenticated %}
+                            <div class="d-none d-lg-block">
+                                <a href="/logout/" class="navbar-icon fa fa-sign-out smoothscroll"></a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </nav>
@@ -120,11 +129,11 @@
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#section_4" class="site-footer-link">FAQs</a>
+                                <a href="/#section_4" class="site-footer-link">FAQs</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#section_5" class="site-footer-link">UMC</a>
+                                <a href="/#umc" class="site-footer-link">UMC</a>
                             </li>
                         </ul>
                     </div>
