@@ -64,8 +64,9 @@
                                     <p><strong>Student ID:</strong> {{ project.student_id }}</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p><strong>Project Grade:</strong> {{ project.grade }}/20
+                                    <p><strong>Project Grade:</strong> 
                                         {% if user.is_staff %}
+                                            {{ project.grade }}/20
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#gradingModal">
                                                 +  Grade Project
                                             </button>

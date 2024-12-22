@@ -18,6 +18,10 @@ def index(request):
     return render(request, "subforum/index.html")
 
 def addNewProject(request):
+    if not request.user.is_staff:
+        project = Projects.objects.filter(user=request.user)
+        if project:
+            return redirect('dashboard')
     if request.method == 'POST':
         first_name = request.POST.get("fname")
         last_name = request.POST.get("lname")
