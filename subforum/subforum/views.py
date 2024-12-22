@@ -7,7 +7,6 @@ from django.db import IntegrityError
 from django.core.files.storage import FileSystemStorage
 import dropbox
 import random, os
-from .settings import dropbox_key
 from dotenv import load_dotenv
 
 load_dotenv(dotenv_path="./.env")
@@ -78,3 +77,11 @@ def addNewProject(request):
                 })
 
     return render(request, "subforum/new_prjct.html")
+
+
+def login(request):
+    if request.method == 'POST':
+        first_name = request.POST.get("fname")
+        last_name = request.POST.get("lname")
+
+    return render(request, "subforum/login.html")

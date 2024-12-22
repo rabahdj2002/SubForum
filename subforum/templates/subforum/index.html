@@ -11,18 +11,6 @@
 
                     <h6 class="text-center">Project submission platform for UMC automation students</h6>
 
-                    <form method="post" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
-                        {% csrf_token %}
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-text fa fa-search" id="basic-addon1">
-                                
-                            </span>
-
-                            <input name="Student_id" type="search" class="form-control" id="Student_id" placeholder="Enter Your student ID" aria-label="Search">
-
-                            <button type="submit" class="form-control">Search</button>
-                        </div>
-                    </form>
                 </div>
 
             </div>
@@ -36,42 +24,32 @@
 
                 <div class="col-lg-4 col-12 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
-                        <a href="grade_projects/">
+                        <a href="login/">
                             <div class="d-flex">
                                 <div>
                                     <h5 class="mb-2">Teacher</h5>
-
                                     <p class="mb-0">When students submit their projects, Mr.Zeltni can grade projects giving them an honest review and a score x/20.</p>
-                                
-                                    <a href="grade_projects/" class="btn custom-btn mt-2 mt-lg-3">Grade Projects</a>
                                 </div>
-
                                 <span class="badge bg-design rounded-pill ms-auto">&#128509;</span>
                             </div>
-
-                            <img src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
-                        <div class="d-flex flex-column h-100">
-                            <img src="https://675d9e4d6994b434308119f4--legendary-banoffee-611637.netlify.app/images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
-
-                            <div class="custom-block-overlay-text d-flex">
-                                <div>
-                                    <h5 class="text-white mb-2">Students</h5>
-
-                                    <p class="text-white">Students can submit their projects and modify them later, before the teacher can grade them, making sure their projects are well described and detailed.</p>
-
-                                    <a href="add_new/" class="btn custom-btn mt-2 mt-lg-3">Submit Projects</a>
+                        <a href="login/">
+                            <div class="d-flex flex-column h-100">
+                                <div class="custom-block-overlay-text d-flex">
+                                    <div>
+                                        <h5 class="text-white mb-2">Students</h5>
+                                        <p class="text-white">Students can submit their projects and modify them later, before the teacher can grade them, making sure their projects are well described and detailed.</p>
+                                    </div>
+                                    <span class="badge bg-finance rounded-pill ms-auto">&#128511;</span>
                                 </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">&#128511;</span>
+                                <div class="section-overlay"></div>
                             </div>
-                            <div class="section-overlay"></div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
