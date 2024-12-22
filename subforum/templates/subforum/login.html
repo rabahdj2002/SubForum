@@ -10,6 +10,16 @@
                 <h1 class="text-white text-center">LOGIN</h1>
 
                 <h6 class="text-center">Enter your credentials to start</h6>
+
+                {% if error_message %}
+                    <div class="alert alert-danger">
+                        {{ error_message }}
+                    </div>
+                {% elif success_message %}
+                    <div class="alert alert-success">
+                        {{ success_message }}
+                    </div>
+                {% endif %}
             </div>
 
         </div>
@@ -34,12 +44,13 @@
                     </div>
 
                     <br>
-                    <form action="/login/" method="post" class="custom-form contact-form" role="form" enctype="multipart/form-data">
+                    <form action="/login/teacher/" method="post" class="custom-form contact-form">
+                        {% csrf_token %}
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-floating">
-                                <input type="text" name="tusername" id="tusername" class="form-control" placeholder="Username">
+                                <input type="email" name="temail" id="temail" class="form-control" placeholder="Email">
                                 
-                                <label for="floatingInput">Username</label>
+                                <label for="floatingInput">Email</label>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12">
@@ -57,25 +68,24 @@
             <div class="col-lg-6 col-12">
                 <div class="custom-block custom-block-overlay">
                     <div class="d-flex flex-column h-100">
-                        <img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
-
                         <div class="custom-block-overlay-text d-flex">
                             <div>
                                 <h5 class="text-white mb-2">Students</h5>
 
                                 <p class="text-white">Enter your student credentials to be able to submit projects and view your results.</p>
                                 
-                                <form action="/add_new/" method="post" class="custom-form contact-form" role="form" enctype="multipart/form-data">
+                                <form action="/login/student/" method="post" class="custom-form contact-form" role="form">
+                                    {% csrf_token %}
                                     <div class="col-lg-12 col-md-12 col-12">
                                         <div class="form-floating">
-                                            <input type="text" name="tusername" id="tusername" class="form-control" placeholder="Username">
+                                            <input type="email" name="semail" id="semail" class="form-control" placeholder="Email">
                                             
-                                            <label for="floatingInput">Username</label>
+                                            <label for="floatingInput">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-12">
                                         <div class="form-floating">
-                                            <input type="password" name="tpassword" id="tpassword" class="form-control" placeholder="Password">
+                                            <input type="password" name="spassword" id="spassword" class="form-control" placeholder="Password">
                                             
                                             <label for="floatingInput">Password</label>
                                         </div>

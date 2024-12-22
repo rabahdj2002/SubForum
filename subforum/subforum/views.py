@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Projects
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
-from django.core.files.storage import FileSystemStorage
 import dropbox
 import random, os
 from dotenv import load_dotenv
@@ -49,7 +50,7 @@ def addNewProject(request):
                 title=project_title,
                 url=url,
                 description=description,
-                file=file_url  # Save the file directly to Cloudinary
+                file=file_url
             )
             return render(request, "subforum/new_prjct.html", {
                     'success_message': 'Project submitted successfully!',
@@ -79,9 +80,40 @@ def addNewProject(request):
     return render(request, "subforum/new_prjct.html")
 
 
-def login(request):
+def login_user(request):
     if request.method == 'POST':
+        email = request.POST.get("email")
+        identifier = request.POST.get("identifier")
+        is_teacher = request.POST.get("is_teacher") == "on"
         first_name = request.POST.get("fname")
         last_name = request.POST.get("lname")
 
     return render(request, "subforum/login.html")
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
+
+
+def loginStudent(request):
+    if request.method == 'POST':
+        email = request.POST.get("semail")
+        identifier = request.POST.get("spassword")
+
+    return render(request, "subforum/login.html")
+
+
+def loginTeacher(request):
+    if request.method == 'POST':
+        email = request.POST.get("temail")
+        identifier = request.POST.get("tpassword")
+        
+        user = authenticate(request, username=email, password=identifier)
+        if user:
+            login(request, user)
+            return redirect('index')
+        else:
+            error_message = "Your credentials are invalid!"
+            return render(request, "subforum/login.html", {'error_message': error_message})
+    return redirect('login')
+
